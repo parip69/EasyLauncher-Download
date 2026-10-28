@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="de">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101620"><title>Easy Launcher herunterladen</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#101620;color:#f0f3fa;font:17px/1.6 system-ui,sans-serif;min-height:100vh;display:grid;place-items:center;padding:28px 18px}main{width:min(100%,570px)}img{width:106px;height:106px;object-fit:contain;border-radius:24px}h1{font-size:38px;line-height:1.2;margin:18px 0 8px}p{color:#b5c1d2}a{color:#bfd3ff}a.download{display:block;background:#cbdcff;color:#142039;padding:17px 22px;text-align:center;border-radius:16px;font-weight:700;text-decoration:none;margin:26px 0 12px}section{background:#202b3d;padding:12px 22px;border-radius:20px;margin-top:26px}section h2{font-size:19px}li{padding:5px 0}small{color:#9daec7}#version{min-height:27px}details{margin-top:18px}code{font-size:12px;overflow-wrap:anywhere}
+</style>
+<main>
+<img src="logo.png" alt="Easy Launcher Logo">
+<h1>Easy Launcher</h1><small>Entwickler: Parid 69</small>
+<p>Dein Android-Startbildschirm mit anpassbarem Dock, mehreren Seiten und Widgets. Ohne Werbung, Konto oder Abo.</p>
+<a class="download" id="download" href="https://github.com/parip69/EasyLauncher-Download/releases/latest">Android-APK herunterladen</a>
+<div id="version" aria-live="polite">Aktuelle Version wird geladen …</div>
+<section><h2>Installieren oder aktualisieren</h2><ol><li>APK auf deinem Android-Handy herunterladen und öffnen.</li><li>Falls Android fragt, die Installation für den Browser beziehungsweise Easy Launcher erlauben.</li><li>„Installieren“ oder „Aktualisieren“ bestätigen.</li></ol><p>Bei einem Update bleibt dein Easy-Launcher-Layout erhalten. Für Android ab Version 8.</p></section>
+<p>In den Launcher-Einstellungen kannst du jederzeit auf Updates prüfen. Die automatische Prüfung ist zunächst aus. Wenn du sie einschaltest, informiert dich eine Android-Benachrichtigung über neue Versionen.</p>
+<details><summary>Download prüfen</summary><p>SHA-256 der aktuellen APK:</p><code id="hash">Siehe Versionsinformation.</code></details>
+<p><small>Android-APK · <a href="https://github.com/parip69/EasyLauncher-Download/releases">Alle Versionen</a></small></p>
+</main>
+<script>
+fetch('update.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error();return r.json()}).then(m=>{
+ const expected=`https://github.com/parip69/EasyLauncher-Download/releases/download/v${m.versionCode}/EasyLauncher-v${m.versionCode}.apk`;
+ if(!Number.isInteger(m.versionCode)||m.apkUrl!==expected)throw Error();
+ document.getElementById('download').href=m.apkUrl;
+ document.getElementById('download').textContent=`Version ${m.versionName} herunterladen`;
+ document.getElementById('version').textContent=`Version ${m.versionName} · ${(m.size/1024/1024).toFixed(1).replace('.',',')} MB`;
+ document.getElementById('hash').textContent=m.sha256;
+}).catch(()=>{document.getElementById('version').textContent='Alle verfügbaren Versionen findest du über den Download-Button.'});
+</script>
+</html>
