@@ -1,11 +1,11 @@
 {
   "schema": 1,
-  "versionCode": 31,
-  "versionName": "31",
+  "versionCode": 32,
+  "versionName": "32",
   "packageName": "com.teslacoilsw.launcher",
   "minSdk": 26,
   "certificateSha256": "6f83da924f40a0ed969d7c121ad078d29f1066af8fb101f3dfbeb27f9cb0f041",
-  "apkUrl": "https://github.com/parip69/EasyLauncher-Download/releases/download/v31/EasyLauncher-v31.apk",
-  "sha256": "12b6cb8c5a6e8fa5a5dcd9c58767bcc728b0cbc0f28dc81587b6cc6a70fe3584",
+  "apkUrl": "https://github.com/parip69/EasyLauncher-Download/releases/download/v32/EasyLauncher-v32.apk",
+  "sha256": "79159b57976f02189a67f92d95cad18e3ef92b2fb88e816a206b59527e3fd044",
   "size": 1696436
 }
