@@ -9,7 +9,12 @@
 <img src="logo.png" alt="Easy Launcher Logo">
 <h1>Easy Launcher</h1><small>Entwickler: Parid 69</small>
 <p>Dein Android-Startbildschirm mit anpassbarem Dock, mehreren Seiten und Widgets. Ohne Werbung, Konto oder Abo.</p>
-<a class="download" id="download" href="https://github.com/parip69/EasyLauncher-Download/releases/latest">Android-APK herunterladen</a>
+<section aria-labelledby="project-info"><h2 id="project-info">Ein kostenloses Privatprojekt</h2>
+<p>Easy Launcher ist ein privat entwickeltes Hobbyprojekt. Die App wird kostenlos angeboten; es wird hier nichts verkauft.</p>
+<p>Download, Installation und Nutzung erfolgen auf eigene Verantwortung. Es gibt keine Garantie für einen fehlerfreien Betrieb oder die Kompatibilität mit jedem Gerät. Sichere wichtige Einstellungen und dein bisheriges Launcher-Layout vor dem Ausprobieren.</p>
+<p>Du kannst Easy Launcher in Ruhe ausprobieren. Wenn er dir nicht gefällt, wähle in den Android-Einstellungen wieder deinen bisherigen Launcher als Standard-Start-App und deinstalliere Easy Launcher anschließend wie jede andere App. Beim Deinstallieren können die in Easy Launcher gespeicherten Einstellungen und Layouts verloren gehen.</p></section>
+<p>Es startet kein automatischer Download. Erst wenn du auf „APK herunterladen“ tippst, wird die Installationsdatei von GitHub heruntergeladen. Die Installation bestätigst du danach selbst auf deinem Gerät.</p>
+<a class="download" id="download" href="https://github.com/parip69/EasyLauncher-Download/releases/latest">APK herunterladen</a>
 <div id="version" aria-live="polite">Aktuelle Version wird geladen …</div>
 <p>Ab Version 35 neben Nova installierbar. Beim Wechsel von Version 34 oder älter wird eine separate App installiert. Sichere dort zuerst dein Layout und stelle die JSON-Datei in der neuen App wieder her; Widgets müssen neu verbunden werden.</p>
 <section><h2>Installieren oder aktualisieren</h2><ol><li>APK auf deinem Android-Handy herunterladen und öffnen.</li><li>Falls Android fragt, die Installation für den Browser beziehungsweise Easy Launcher erlauben.</li><li>„Installieren“ oder „Aktualisieren“ bestätigen.</li></ol><p>Bei einem Update bleibt dein Easy-Launcher-Layout erhalten. Für Android ab Version 8.</p></section>
@@ -22,7 +27,7 @@ fetch('update.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error();return r
  const expected=`https://github.com/parip69/EasyLauncher-Download/releases/download/v${m.versionCode}/EasyLauncher-v${m.versionCode}.apk`;
  if(!Number.isInteger(m.versionCode)||m.apkUrl!==expected)throw Error();
  document.getElementById('download').href=m.apkUrl;
- document.getElementById('download').textContent=`Version ${m.versionName} herunterladen`;
+ document.getElementById('download').textContent=`APK herunterladen · Version ${m.versionName}`;
  document.getElementById('version').textContent=`Version ${m.versionName} · ${(m.size/1024/1024).toFixed(1).replace('.',',')} MB`;
  document.getElementById('hash').textContent=m.sha256;
 }).catch(()=>{document.getElementById('version').textContent='Alle verfügbaren Versionen findest du über den Download-Button.'});
