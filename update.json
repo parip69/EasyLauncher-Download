@@ -1,11 +1,11 @@
 {
   "schema": 1,
-  "versionCode": 36,
-  "versionName": "36",
+  "versionCode": 37,
+  "versionName": "37",
   "packageName": "de.parid69.easylauncher",
   "minSdk": 26,
   "certificateSha256": "6f83da924f40a0ed969d7c121ad078d29f1066af8fb101f3dfbeb27f9cb0f041",
-  "apkUrl": "https://github.com/parip69/EasyLauncher-Download/releases/download/v36/EasyLauncher-v36.apk",
-  "sha256": "29f69b420623a0c99be1da2df1e41a320548af10c5d5d65dc13ef02180639fea",
-  "size": 1696358
+  "apkUrl": "https://github.com/parip69/EasyLauncher-Download/releases/download/v37/EasyLauncher-v37.apk",
+  "sha256": "6bdf449eb273d2506102e7fadcacff499ec9a2bdd980f6981b58d79d843deafd",
+  "size": 1704550
 }
