@@ -1,0 +1,28 @@
+name: Signierte APK veröffentlichen
+on:
+  push:
+    paths: ['.release-upload/**', '.github/workflows/publish-apk.yml']
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - name: APK prüfen und veröffentlichen
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import hashlib,json,os,pathlib,subprocess
+          p=pathlib.Path('.release-upload/release.apk');m=json.loads(pathlib.Path('.release-upload/release.json').read_text());v=int(m['version'])
+          cert='6f83da924f40a0ed969d7c121ad078d29f1066af8fb101f3dfbeb27f9cb0f041'
+          assert hashlib.sha256(p.read_bytes()).hexdigest()==m['sha256'] and m['certificate']==cert
+          tools=sorted((pathlib.Path(os.environ['ANDROID_HOME'])/'build-tools').glob('*'))[-1]
+          checked=subprocess.check_output([str(tools/'apksigner'),'verify','--print-certs',str(p)],text=True)
+          assert cert in checked
+          badging=subprocess.check_output([str(tools/'aapt2'),'dump','badging',str(p)],text=True)
+          assert "package: name='de.parid69.easylauncher'" in badging and f"versionCode='{v}'" in badging
+          apk=pathlib.Path(f'EasyLauncher-v{v}.apk');apk.write_bytes(p.read_bytes())
+          subprocess.run(['gh','release','create',f'v{v}',str(apk),'--target',os.environ['GITHUB_SHA'],'--title',f'Easy Launcher {v}','--notes','Signierte APK mit bestehender Identität. Prüfsumme, Paket, Version und Zertifikat geprüft.'],check=True)
+          PY
