@@ -24,5 +24,15 @@ jobs:
           badging=subprocess.check_output([str(tools/'aapt2'),'dump','badging',str(p)],text=True)
           assert "package: name='de.parid69.easylauncher'" in badging and f"versionCode='{v}'" in badging
           apk=pathlib.Path(f'EasyLauncher-v{v}.apk');apk.write_bytes(p.read_bytes())
-          subprocess.run(['gh','release','create',f'v{v}',str(apk),'--target',os.environ['GITHUB_SHA'],'--title',f'Easy Launcher {v}','--notes','Signierte APK mit bestehender Identität. Prüfsumme, Paket, Version und Zertifikat geprüft.'],check=True)
+          existing=subprocess.run(['gh','release','view',f'v{v}','--json','assets'],capture_output=True,text=True)
+          if existing.returncode==0:
+              assets=json.loads(existing.stdout)['assets']
+              if any(asset['name']==apk.name for asset in assets):
+                  check=pathlib.Path('release-check');check.mkdir()
+                  subprocess.run(['gh','release','download',f'v{v}','--pattern',apk.name,'--dir',str(check)],check=True)
+                  assert hashlib.sha256((check/apk.name).read_bytes()).hexdigest()==m['sha256'], 'Vorhandene APK darf nicht ersetzt werden'
+              else:
+                  subprocess.run(['gh','release','upload',f'v{v}',str(apk)],check=True)
+          else:
+              subprocess.run(['gh','release','create',f'v{v}',str(apk),'--target',os.environ['GITHUB_SHA'],'--title',f'Easy Launcher {v}','--notes','Signierte APK mit bestehender Identität. Prüfsumme, Paket, Version und Zertifikat geprüft.'],check=True)
           PY
