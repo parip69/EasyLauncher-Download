@@ -1,11 +1,11 @@
 {
   "schema": 1,
-  "versionCode": 81,
-  "versionName": "81",
+  "versionCode": 82,
+  "versionName": "82",
   "packageName": "de.parid69.easylauncher",
   "minSdk": 26,
   "certificateSha256": "6f83da924f40a0ed969d7c121ad078d29f1066af8fb101f3dfbeb27f9cb0f041",
-  "apkUrl": "https://github.com/parip69/EasyLauncher-Download/releases/download/v81/EasyLauncher-v81.apk",
-  "sha256": "564c62133dcfb1a4c054d06b32748f6e3a125ef16f03959397bed83cb0f625c3",
-  "size": 1741414
+  "apkUrl": "https://github.com/parip69/EasyLauncher-Download/releases/download/v82/EasyLauncher-v82.apk",
+  "sha256": "252e3058fdcfaa92dc246fba612388d4a94fa48083c142c2d43da29103dd8eb7",
+  "size": 1749606
 }
