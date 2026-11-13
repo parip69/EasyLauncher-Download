@@ -21,7 +21,7 @@ fetch('update.json', {cache:'no-store'})
     link.hidden = false;
     document.getElementById('status').textContent = 'Der Download startet. Falls nötig, tippe auf „APK herunterladen“.';
     if (manifest.versionCode >= 87) {
-      document.getElementById('status').textContent = 'Google Play Protect hat den letzten Updateversuch auf Version 87 blockiert. Version 88 korrigiert einen Button-Abstand; keine Freigabe bestaetigt. APK manuell ueber den Link herunterladen.';
+      document.getElementById('status').textContent = 'Version 88 wurde auf dem Testtelefon per USB erfolgreich als Update installiert; Google Play Protect meldete ALLOW. Der fruehere v87-Versuch war blockiert. Installation aus der App fuer v88 noch nicht geprueft; keine allgemeine Google-Freigabe bestaetigt. APK manuell ueber den Link herunterladen.';
     } else { window.location.replace(expected); }
   }).catch(() => {
     document.getElementById('status').textContent = 'Die aktuelle APK konnte nicht ermittelt werden. Bitte prüfe die Internetverbindung und lade die Seite erneut.';
