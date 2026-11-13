@@ -20,8 +20,8 @@ fetch('update.json', {cache:'no-store'})
     link.href = expected;
     link.hidden = false;
     document.getElementById('status').textContent = 'Der Download startet. Falls nötig, tippe auf „APK herunterladen“.';
-    if (manifest.versionCode === 87) {
-      document.getElementById('status').textContent = 'Teststatus Version 87: Google Play Protect blockiert die Installation auf dem getesteten Samsung-Ger?t. APK ?ber den Link manuell herunterladen.';
+    if (manifest.versionCode >= 87) {
+      document.getElementById('status').textContent = 'Google Play Protect hat den letzten Updateversuch auf Version 87 blockiert. Version 88 korrigiert einen Button-Abstand; keine Freigabe bestaetigt. APK manuell ueber den Link herunterladen.';
     } else { window.location.replace(expected); }
   }).catch(() => {
     document.getElementById('status').textContent = 'Die aktuelle APK konnte nicht ermittelt werden. Bitte prüfe die Internetverbindung und lade die Seite erneut.';
