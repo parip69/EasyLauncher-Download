@@ -3,7 +3,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Easy Launcher herunterladen</title>
-<style>body{background:#111;color:#fff;font:18px system-ui;text-align:center;padding:40px 20px}img{width:120px;border-radius:24px}a{color:#ddd}</style>
+<style>body{background:#101620;color:#f0f3fa;font:18px system-ui;text-align:center;padding:40px 20px}img{width:120px;border-radius:24px}a{color:#c7dcff}a#download{display:inline-block;background:linear-gradient(180deg,#25354d,#202b3d);border:1px solid #7ea6de40;box-shadow:0 4px 20px #7ea6de20;border-radius:16px;padding:14px 22px;text-decoration:none}p{color:#afc0dd;line-height:1.6}</style>
 <img src="logo.png" alt="Easy Launcher">
 <h1>Easy Launcher</h1>
 <p>Ab Version 86 wieder die ursprüngliche App-ID und Signatur wie Version 84. Version 85 war eine separate App; deren Sicherung bei Bedarf in der ursprünglichen App importieren.</p>
@@ -21,7 +21,7 @@ fetch('update.json', {cache:'no-store'})
     link.hidden = false;
     document.getElementById('status').textContent = 'Der Download startet. Falls nötig, tippe auf „APK herunterladen“.';
     if (manifest.versionCode >= 87) {
-      document.getElementById('status').textContent = 'Version 98 bleibt ohne Benachrichtigungszugriff und verarbeitet Verknuepfungen und Sicherungen im Hintergrund. Adressen, Symbole und Positionen bleiben gesichert. Der Telefon-Test dieser neuen APK steht noch aus. APK manuell ueber den Link herunterladen.';
+      document.getElementById('status').textContent = 'Version 99 bleibt ohne Benachrichtigungszugriff und verarbeitet Verknuepfungen und Sicherungen im Hintergrund. Adressen, Symbole und Positionen bleiben gesichert. Der Telefon-Test dieser neuen APK steht noch aus. APK manuell ueber den Link herunterladen.';
     } else { window.location.replace(expected); }
   }).catch(() => {
     document.getElementById('status').textContent = 'Die aktuelle APK konnte nicht ermittelt werden. Bitte prüfe die Internetverbindung und lade die Seite erneut.';
