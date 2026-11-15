@@ -21,7 +21,7 @@ fetch('update.json', {cache:'no-store'})
     link.hidden = false;
     document.getElementById('status').textContent = 'Der Download startet. Falls nötig, tippe auf „APK herunterladen“.';
     if (manifest.versionCode >= 87) {
-      document.getElementById('status').textContent = 'Version 94 bleibt ohne Benachrichtigungszugriff und verarbeitet Verknuepfungen und Sicherungen im Hintergrund. Adressen, Symbole und Positionen bleiben gesichert. Der Telefon-Test dieser neuen APK steht noch aus. APK manuell ueber den Link herunterladen.';
+      document.getElementById('status').textContent = 'Version 95 bleibt ohne Benachrichtigungszugriff und verarbeitet Verknuepfungen und Sicherungen im Hintergrund. Adressen, Symbole und Positionen bleiben gesichert. Der Telefon-Test dieser neuen APK steht noch aus. APK manuell ueber den Link herunterladen.';
     } else { window.location.replace(expected); }
   }).catch(() => {
     document.getElementById('status').textContent = 'Die aktuelle APK konnte nicht ermittelt werden. Bitte prüfe die Internetverbindung und lade die Seite erneut.';
